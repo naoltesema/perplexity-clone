@@ -4,10 +4,8 @@ import 'package:perplexity_clone/themes/colors.dart';
 import 'package:perplexity_clone/widgets/search_bar_button.dart';
 
 class SearchSection extends StatelessWidget {
-
   const SearchSection({
     super.key,
-   
   });
 
   @override
@@ -28,45 +26,58 @@ class SearchSection extends StatelessWidget {
         Container(
           width: 700,
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              width: 1.5,
+              color: AppColors.searchBarBorder,
+            ),
             color: AppColors.searchBar,
           ),
           child: Column(
             children: [
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search anything....',
-                  hintStyle: TextStyle(
-                    color: AppColors.whiteColor,
-                    fontSize: 16,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search anything....',
+                    hintStyle: TextStyle(
+                      color: AppColors.whiteColor,
+                      fontSize: 16,
+                    ),
+                    border: InputBorder.none,
+                    isDense: true,
+                    contentPadding: EdgeInsets.zero,
                   ),
-                  border: InputBorder.none,
                 ),
               ),
-              Row(
-                children: [
-                  SearchBarButton(
-                    icon: Icons.auto_awesome_mosaic,
-                    text: 'Focus',
-                  ),
-                  const SizedBox(width: 14),
-                  SearchBarButton(
-                    icon: Icons.add_circle_outline_outlined,
-                    text: "Attach",
-                  ),
-                  const Spacer(),
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: AppColors.submitButton,
-                      borderRadius: BorderRadius.circular(40),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    SearchBarButton(
+                      icon: Icons.auto_awesome_mosaic,
+                      text: 'Focus',
                     ),
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      color: AppColors.background,
-                      size: 16,
+                    const SizedBox(width: 14),
+                    SearchBarButton(
+                      icon: Icons.add_circle_outline_outlined,
+                      text: "Attach",
                     ),
-                  )
-                ],
+                    const Spacer(),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: AppColors.submitButton,
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: const Icon(
+                        Icons.arrow_forward,
+                        color: AppColors.background,
+                        size: 16,
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),
