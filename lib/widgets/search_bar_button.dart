@@ -15,22 +15,34 @@ class SearchBarButton extends StatefulWidget {
 }
 
 class _SearchBarButtonState extends State<SearchBarButton> {
+  bool isHovered = false;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return MouseRegion(
+      onEnter: (event) {
+        setState(() {
+          isHovered = true;
+        });
+      },
+      onExit: (event) {
+        setState(() {
+          isHovered = false;
+        });
+      },
       child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: Colors.transparent,
+          color: isHovered ? AppColors.proButton : Colors.transparent,
         ),
         child: Row(
           children: [
             Icon(
-             widget.icon,
+              widget.icon,
               color: AppColors.iconGrey,
               size: 20,
             ),
+            const SizedBox(width: 8),
             Text(
               widget.text,
               style: TextStyle(
