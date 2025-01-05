@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI  # type: ignore
 
-app = Fastapi()
+app = FastAPI()
 
 @app.get("/")
-def hello_world();
+def hello_world():
     return "hello world"
